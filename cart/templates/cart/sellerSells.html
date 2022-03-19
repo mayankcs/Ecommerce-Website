@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Products Sold </title>
+   
+</head>
+
+<body>
+<!-- navbar start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/account/sellerProfile/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+
+        
+            <a class="nav-item nav-link" href="/account/logout">logout</a>
+
+    </div>
+</div>
+</nav>
+<!-- navbar ends -->
+<br>
+    
+
+    
+    
+      <div class="container">
+        <h1>Your sells</h1>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">customer</th>
+            <th scope="col">product</th>
+            <th scope="col">price</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in products_sold %}
+          <tr class="reverse">
+            
+            <td>{{i.user_id.customer_username.username}}</td>
+            <td><a href="/product/homedetail/{{i.product_id.id}}">{{i.product_id.name}}</a></td>
+            <td>{{i.product_id.price}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</body>
+
+</html>

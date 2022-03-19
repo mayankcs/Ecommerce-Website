@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> profile </title>
+
+    <style>
+        .wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+    </style>
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/account/sellerProfile/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+
+            
+                <a class="nav-item nav-link" href="/account/logout">logout</a>
+
+        </div>
+    </div>
+</nav>
+<!-- navbar end -->
+    
+    <div class="container">
+        <h2>Name:- {{seller_obj.seller_username}} </h2>
+        <h2>Shop name:- {{seller_obj.shop_name}} </h2>
+        <h2> Total earning :- {{seller_obj.total_earning}} </h2>
+    </div>
+
+
+    <div class="container">
+    {% if msg %}
+    <hr>
+    <strong>You are not selling anything</strong>
+    {% endif %}
+    <button type="button" class="btn btn-success"><a  style="color: aliceblue;"href="/product/addProduct">add product to sell</a></button>
+
+    <button type="button" class="btn btn-success my-3"><a  style="color: aliceblue;"href="/cart/sellersells">check your sells</a></button>
+    <div class="container mx-2">
+    <div class="wrapper">
+        {% for i in product_obj %}
+        <div class="container my-3">
+           <h3></h3>
+            
+
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{i.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/product/homedetail/{{i.id}}">{{i.name|slice:":20"}}</a></h5>
+                    <p class="card-text">{{i.imformation|slice:":20"}}</p>
+                    <a href="/product/homedetail/{{i.id}}" class="btn btn-primary">Quanitity {{i.quantity}}</a>
+                    <a href="/product/homedetail/{{i.id}}" class="btn btn-primary">Know more</a>
+                    <a href="/product/updateproduct/{{i.id}}" class="btn btn-warning">Update</a>
+                    <a href="/product/removeproduct/{{i.id}}" class="btn btn-warning">remove</a>
+                </div>
+            </div>
+            <br>  
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>

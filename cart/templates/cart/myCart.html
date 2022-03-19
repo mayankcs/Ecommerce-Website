@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> MY CART </title>
+
+    <style>
+ #nav1{
+    color: white;
+    font-family: sans-serif;
+
+}       
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+@media screen and (max-width: 800px) {
+  .wrapper {
+    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/product/home">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <a class="nav-item nav-link" href="/cart/myorders">my orders</a>a
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>This is the cart of {{username}}</h1>
+    <a href="/cart/checkout" class="btn btn-primary" id='vertical-center'>Checkout cart</a>
+</div>
+    <div class="wrapper">
+        {% for i in mycart %}
+        <div class="container my-3">
+           <h3></h3>
+            
+
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{i.product_id.image}}" class="card-img-top" alt="..."   height=200 weight=200>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/product/homedetail/{{i.product_id.id}}">{{i.product_id.name}}</a></h5>
+                    <p class="card-text">{{i.product_id.imformation|slice:":20"}}</p>
+                    <a href="/product/homedetail/{{i.product_id.id}}" class="btn btn-primary">Quanitity {{i.product_id.quantity}}</a>
+                    <a href="/product/homedetail/{{i.product_id.id}}" class="btn btn-primary">Know more</a>
+                   
+                    <a href="/cart/removefromcart/{{i.product_id.id}}" class="btn btn-warning">Remove from cart</a>
+                </div>
+            </div>
+            <br>  
+
+        </div>
+        
+        {% endfor %}
+    </div>
+
+
+</body>
+
+</html>

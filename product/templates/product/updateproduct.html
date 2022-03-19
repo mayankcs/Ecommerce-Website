@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+    </style>
+    <title>Register</title>
+    
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/account/sellerProfile/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+
+               
+
+            </div>
+        </div>
+    </nav>
+
+    <h3></h3>
+
+
+    <div class="container">
+        <!-- Content here -->
+        <h2>Add product for sell</h2>
+        <br>
+       
+
+
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <br>
+
+            <input type="text" class="form-control" name="name" placeholder="Product name" value="{{p_data.name}}" required>
+            <br>
+
+            <select class="form-control my-3" aria-label="Default select example" name="cat">
+                <option selected>{{p_data.category}}</option>
+                {% for i in c_data %}
+                <option value="1">{{i.name}}</option>
+                {% endfor %}
+            </select>
+
+            <small>Image of Product Try to cover all angles</small>
+            
+            <!-- 
+          
+
+            this image upload throws error , dont forgert to solve this
+            
+             -->
+             
+            <input type="file" class="form-control" name="image" max-size="1000" placeholder="Product image"value="{{p_data.image}}">
+            <br>
+
+            <input type="text" class="form-control" name="imformation" placeholder="Product information" value="{{p_data.imformation}}" required>
+            <br>
+
+            <input type="number" class="form-control" name="quantity" placeholder="quantity"value="{{p_data.quantity}}" required>
+            <br>
+
+            <input type="number" class="form-control" name="price" placeholder="price"value="{{p_data.price}}" required>
+            <br>
+
+
+
+            <br>
+            <button type="submit" class="btn btn-warning" href="/product/updateproduct/{{p_data.id}}/"placeholder="submit">Submit</button>
+
+
+        </form>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

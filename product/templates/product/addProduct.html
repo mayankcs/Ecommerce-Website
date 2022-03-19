@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+    </style>
+    <title>Register</title>
+    
+</head>
+
+<body>
+
+<!-- navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/account/sellerProfile/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       
+    </nav>
+<!-- navbar ends -->
+    <h3></h3>
+
+
+    <div class="container">
+        <!-- Content here -->
+        <h2>Add product for sell</h2>
+        <br>
+       
+
+
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <br>
+
+            <input type="text" class="form-control" name="name" placeholder="Product name" required>
+            <br>
+
+            <select class="form-control my-3" aria-label="Default select example" name="cat">
+                <option selected>Choose category</option>
+                {% for i in data %}
+                <option value="1">{{i.name}}</option>
+                {% endfor %}
+            </select>
+
+            <small>Image of Product Try to cover all angles</small>
+            
+            <!-- 
+          
+
+            this image upload throws error , dont forgert to solve this
+            
+             -->
+             
+            <input type="file" class="form-control" name="image" placeholder="Product image" required>
+            <br>
+
+            <input type="text" class="form-control" name="imformation" placeholder="Product information" required>
+            <br>
+
+            <input type="number" class="form-control" name="quantity" placeholder="quantity" required>
+            <br>
+
+            <input type="number" class="form-control" name="price" placeholder="price" required>
+            <br>
+
+
+
+            <br>
+            <button type="submit" class="btn btn-warning" placeholder="submit">Submit</button>
+
+
+        </form>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
