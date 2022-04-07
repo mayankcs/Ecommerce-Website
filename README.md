@@ -11,7 +11,7 @@ We have two roles of users
 3) Shipper:- ( *Future goal* )
 
 **Q. Why this Website stands out ?**
-I made this Ecommerce-website within just two days🎯 , it was bit challenging but i first broken down task in sub task and then started doing everything right from writing backend logic in Django and frontend using HTML and CSS.
+I made this Ecommerce-website within just two days 🎯 , it was bit challenging but i first broken down task in sub task and then started doing everything right from writing backend logic in Django and frontend using HTML and CSS.
 
 ## Walk through Website 🚶
 
