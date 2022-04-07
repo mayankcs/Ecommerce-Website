@@ -11,7 +11,7 @@ We have two roles of users
 3) Shipper:- ( *Future goal* )
 
 **Q. Why this Website stands out ?**
-I made this Ecommerce-website within just two days 🎯 , it was bit challenging but i first broken down task in sub task and then started doing everything right from writing backend logic in Django and frontend using HTML and CSS.
+I made this Ecommerce-website within just two days🎯 , it was bit challenging but i first broken down task in sub task and then started doing everything right from writing backend logic in Django and frontend using HTML and CSS.
 
 ## Walk through Website 🚶
 
@@ -32,4 +32,13 @@ Most important part is the **Seller Profile**, as sellers add product to website
 
 When seller get's logged in, then he/she is redirected to special page which is seller dashboard where seller will find all their products uploaded for selling. seller can even update stock on the same page and also can check every order in detail
 
+## Technology used
 
+Every logic at the backend is implemented in **Python**
+**Django** framework is utilised as i thought it would be great for Ecommerce website.
+Initially i used MongoDB as database but i then removed it and used SQLite3 as its built in Django , but when i will use it for production, i will consider mongodb as database!
+
+## Future Goal 
+
+ - Add shipper roal 
+ - payment integration
